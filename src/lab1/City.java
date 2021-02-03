@@ -1,0 +1,63 @@
+/*
+Author(s): Laith Oudah & Klas Nordquist
+Assignment: Lab 1
+*/
+
+package lab1;
+
+public class City {
+
+    private AllBuildings infrastructure;
+    private Inhabitants people;
+
+    public City() {
+        infrastructure = new AllBuildings();
+        people = new Inhabitants();
+    }
+
+    public void addPerson(String firstName, String secondName, int age, String streetName, int number) {
+        Building tempBuilding = infrastructure.getBuilding(streetName, number);
+        Person tempPerson = people.addPerson(firstName, secondName, age);
+
+        if (tempPerson != null) {
+            tempPerson.setaddress(tempBuilding);
+            tempBuilding.addPerson(tempPerson);
+        }
+    }
+
+    public void movePerson(String firstName, String secondName, int age, String streetName, int number) {
+        Person person = people.searchPerson(firstName, secondName, age);
+        Building building;
+
+        if (person == null) {
+            System.out.println("Person does not exist");
+        } else {
+            Building remove = person.getaddress();
+            remove.removePerson(person);
+
+            building = infrastructure.getBuilding(streetName, number);
+            building.addPerson(person);
+            infrastructure.cleanUp();
+        }
+    }
+
+    public String listBuildings() {
+        String dummy;
+        dummy = infrastructure.toString();
+        return dummy;
+    }
+
+    public String listPeople() {
+        String dummy;
+        dummy = people.toString();
+        return dummy;
+    }
+
+    public String toString() {
+        String dummy;
+        dummy = ("City Statistics\n---------------\n"
+                + infrastructure.getNumberOfBuildings() + "\n"
+                + people.getNumberOfPeople());
+        return dummy;
+    }
+}
