@@ -7,8 +7,8 @@ package lab1;
 
 public class Person {
 
-    private int age;
-    private String firstName, secondName;
+    private final int age;
+    private final String firstName, secondName;
     private Building address;
     private static boolean theFormat;
     public static final boolean WITHAGE = true, NOAGE = false;
@@ -19,11 +19,11 @@ public class Person {
         this.age = age;
     }
 
-    public void setaddress(Building streetName) {
-        this.address = streetName;
+    public void setAdress(Building streetName) {
+        address = streetName;
     }
 
-    public Building getaddress() {
+    public Building getAdress() {
         return address;
     }
 
@@ -31,18 +31,15 @@ public class Person {
         return this.firstName.equals(firstName) && this.secondName.equals(secondName) && age == this.age;
     }
 
-    public static boolean changeFormat(boolean FormatPerson) {
+    public static void changeFormat(boolean FormatPerson) {
         theFormat = FormatPerson;
-        return FormatPerson;
     }
 
     public String toString() {
-        String dummy;
         if (theFormat == WITHAGE) {
-            dummy = firstName + "\t" + secondName + "\t" + "age: " + age;
+            return  firstName + "\t" + secondName + "\t" + "age: " + age;
         } else {
-            dummy = firstName + "\t" + secondName + "\t";
+           return  firstName + "\t" + secondName + "\t";
         }
-        return dummy;
     }
 }

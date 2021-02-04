@@ -9,7 +9,7 @@ import java.util.ArrayList; // import the ArrayList class
 
 public class AllBuildings {
 
-    private ArrayList<Building> theBuildings;
+    private final ArrayList<Building> theBuildings;
 
     public AllBuildings() {
         theBuildings = new ArrayList<>();
@@ -27,7 +27,6 @@ public class AllBuildings {
                 break;
             }
         }
-
         if (checker) {
             theBuildings.add(bDummy);
             System.out.println("Building Added.");
@@ -48,7 +47,7 @@ public class AllBuildings {
     }
 
     public String toString() {
-        StringBuilder returner = new StringBuilder("List of buildings: -----------------");
+        StringBuilder returner = new StringBuilder("List of buildings: \n-----------------\n");
         for (Building theBuilding : theBuildings) {
             returner.append(theBuilding.toString()).append("\n");
         }

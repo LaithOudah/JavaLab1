@@ -20,7 +20,7 @@ public class City {
         Person tempPerson = people.addPerson(firstName, secondName, age);
 
         if (tempPerson != null) {
-            tempPerson.setaddress(tempBuilding);
+            tempPerson.setAdress(tempBuilding);
             tempBuilding.addPerson(tempPerson);
         }
     }
@@ -32,7 +32,7 @@ public class City {
         if (person == null) {
             System.out.println("Person does not exist");
         } else {
-            Building remove = person.getaddress();
+            Building remove = person.getAdress();
             remove.removePerson(person);
 
             building = infrastructure.getBuilding(streetName, number);
@@ -42,22 +42,16 @@ public class City {
     }
 
     public String listBuildings() {
-        String dummy;
-        dummy = infrastructure.toString();
-        return dummy;
+        return infrastructure.toString();
     }
 
     public String listPeople() {
-        String dummy;
-        dummy = people.toString();
-        return dummy;
+        return people.toString();
     }
 
     public String toString() {
-        String dummy;
-        dummy = ("City Statistics\n---------------\n"
+        return ("City Statistics\n---------------\n"
                 + infrastructure.getNumberOfBuildings() + "\n"
                 + people.getNumberOfPeople());
-        return dummy;
     }
 }

@@ -16,7 +16,6 @@ public class Inhabitants {
     }
 
     public Person addPerson(String firstName, String secondName, int age) {
-
         Person person = new Person(firstName, secondName, age);
         for (Person thePerson : thePeople) {
             if (thePerson.isPerson(firstName, secondName, age)) {
@@ -38,14 +37,14 @@ public class Inhabitants {
     }
 
     public String getNumberOfPeople() {
-        return new String("Number of People:" + thePeople.size());
+        return "Number of People:" + thePeople.size();
     }
 
     public String toString() {
-        StringBuilder pplreturn = new StringBuilder("List of inhabitans: \n");
+        StringBuilder returner = new StringBuilder("List of Inhabitants \n-------------------\n" );
         for (Person thePerson : thePeople) {
-            pplreturn.append(thePerson).append("\n");
+            returner.append(thePerson).append("\n");
         }
-        return pplreturn.toString();
+        return returner.toString();
     }
 }

@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
 
         City theCity = new City();
-        // We add people to the city buildings get created whenever we have a new address.
 
         System.out.println("\nPerson 1\n---------");
         theCity.addPerson("Tomas", "Karlsson", 27, "Kungsgatan", 17);
@@ -30,6 +29,10 @@ public class Main {
         theCity.addPerson("Viveka", "Marklund", 21, "Drottninggatan", 12);
         System.out.println("\nPerson 9\n---------");
         theCity.addPerson("Simon", "Brodin", 70, "Drottninggatan", 12);
+
+
+        System.out.println();
+        System.out.println(theCity.listPeople());
 
         Person.changeFormat(true);
 
